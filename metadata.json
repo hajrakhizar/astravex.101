@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Let`s go Beyond the Mission — The Things We Left Behind",
+  "description": "An interactive digital museum and scientific archive exploring human-made artifacts left on the Moon and Mars across NASA space exploration missions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

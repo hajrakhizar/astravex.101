@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono-code: 'JetBrains Mono', monospace;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    background-color: #060913;
+    color: #e2e8f0;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+}
+
+/* Custom telemetry scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080d1e;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
+
+/* Font helpers */
+.font-space {
+  font-family: var(--font-heading);
+}
+
+.font-code {
+  font-family: var(--font-mono-code);
+}
+
+/* High-tech Mission Ops Panels */
+.hud-card {
+  background: rgba(10, 16, 35, 0.82);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 15px -3px rgba(14, 165, 233, 0.08);
+  backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hud-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 15px 35px -8px rgba(0, 0, 0, 0.9), 0 0 25px -2px rgba(14, 165, 233, 0.2);
+  transform: translateY(-2px);
+}
+
+.hud-card-amber {
+  background: rgba(20, 14, 25, 0.82);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 15px -3px rgba(245, 158, 11, 0.08);
+  backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hud-card-amber:hover {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 15px 35px -8px rgba(0, 0, 0, 0.9), 0 0 25px -2px rgba(245, 158, 11, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Cosmic radar grid background */
+.cosmic-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.cosmic-radial-glow {
+  background: radial-gradient(circle at 50% 25%, rgba(14, 165, 233, 0.18) 0%, rgba(99, 102, 241, 0.08) 45%, transparent 75%);
+}
+
+.mars-radial-glow {
+  background: radial-gradient(circle at 50% 25%, rgba(239, 68, 68, 0.18) 0%, rgba(245, 158, 11, 0.09) 45%, transparent 75%);
+}
+
+.lunar-radial-glow {
+  background: radial-gradient(circle at 50% 25%, rgba(148, 163, 184, 0.16) 0%, rgba(56, 189, 248, 0.09) 45%, transparent 75%);
+}
+
+/* Animations */
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+.animate-radar-sweep {
+  animation: radar-sweep 4s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* Scanline effect */
+.scanline {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 240, 255, 0.04) 50%,
+    rgba(0, 240, 255, 0.04)
+  );
+  background-size: 100% 4px;
+}
+
+/* Planet and Alien Animations */
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes float-planet {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(3deg); }
+}
+
+@keyframes float-planet-alt {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(18px) rotate(-4deg); }
+}
+
+@keyframes float-alien {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+@keyframes wave-hand {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(18deg); }
+  75% { transform: rotate(-14deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse 34s linear infinite;
+}
+
+.animate-float-planet {
+  animation: float-planet 7s ease-in-out infinite;
+}
+
+.animate-float-planet-alt {
+  animation: float-planet-alt 9s ease-in-out infinite;
+}
+
+.animate-float-alien {
+  animation: float-alien 4.5s ease-in-out infinite;
+}
+
+.animate-wave-hand {
+  animation: wave-hand 1.2s ease-in-out infinite;
+  transform-origin: 80% 80%;
+}
+
